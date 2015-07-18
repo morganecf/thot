@@ -11,7 +11,8 @@
 
 // Listen for a note message 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	sendResponse({received: request.note});
+	sendResponse({received: $("#note-section").length});
 
 	// Add it to the popup 
+	//$("#note-section").append($("<p>" + request.note + "</p>"));
 });
