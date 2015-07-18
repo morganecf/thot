@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "Note Taker",
+  "description": "Take some notes as your read articles! Save them! Never look at them again!",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "notes.png",
+    "default_popup": "notes.html"
+  },
+
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ], 
+
+  // "background": {
+  //   "scripts": ["jquery.min.js", "notes.js"]
+  // },
+
+  "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["jquery.min.js", "notes.js"]
+      }
+   ]
+}

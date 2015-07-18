@@ -1,0 +1,42 @@
+<html> 
+
+<head>
+	<script src="jquery.min.js"> </script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var highlights = [];
+
+			var note = function () {
+				var text = '';
+				// If something has been highlighted 
+				if (window.getSelection()) {
+					// Get the highlighted text 
+					text = window.getSelection().toString();
+				}
+				else if (document.selection && document.selection.type != "Control") {
+        			text = document.selection.createRange().text;
+    			}
+    			return text;
+			};
+
+			// Get the click event 
+			$(document).mouseup(function () {
+				var text = note();
+				$("#notes").append($("<p>" + text + "</p>"));
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<div>
+		As I was gurgling joyously after following a thrilling World Cup final, with the USA winning 5-2 over Japan on the strength of “Big Game” Carli Lloyd’s hat trick, my e-mail dinged. I was asked to be on a radio show tomorrow to discuss whether people really, actually care about women’s sports. I typed back a rather rude “no,” because, frankly, I’m done with the media-debate spectacle of “defending” women’s sports. It’s exhausting, like debating with some ham-faced think-tank goon about whether global warming is real or having to argue whether that name of the Washington football team is honestly and truly racist.
+	</div>
+
+	<div id="notes">
+	</div>
+
+</body>
+
+</html>
