@@ -6,6 +6,8 @@
 	<head> 
 		<title>My Notes</title>
 
+			<link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
 			<style>
 				body {
 					width: 400px;
@@ -28,6 +30,7 @@
 				}
 				#note-section {
 					margin: 5px;
+					width: 400px;
 				}
 				.header {
 					width: 100%;
@@ -42,6 +45,11 @@
 				#t3 {background-color: orange; width: 240px;}
 				#t4 {background-color: yellow; width: 320px;}
 				#t5 {background-color: green; width: 400px;}
+
+				#note-name-div {
+					display: none;
+				}
+
 			</style>
 
 			<!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> -->
@@ -62,6 +70,14 @@
 		<div id="note-section"></div>
 
 		<div id="color-switcher"></div>
+
+		<button type="button" class="btn btn-info">New Note</button>
+		<!-- <button type="button" class="btn btn-warning">Edit</button> -->
+
+		<div id="note-name-div">
+			<input type="text" placeholder="note name" id="note-name">
+			<button type="button" class="btn btn-success">Create</button>
+		</div>
 
 	</body>
 
