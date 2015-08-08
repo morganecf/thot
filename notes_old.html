@@ -1,0 +1,85 @@
+<!-- This is what is shown when the notes extension button is clicked --> 
+
+<!doctype html>
+
+<html>
+	<head> 
+		<title>My Notes</title>
+
+			<link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+			<style>
+				body {
+					width: 400px;
+					height: 500px;
+					/*border: 1px solid #666;*/
+				}
+				p {
+					font-size: 15px;
+					/*font-family: 'Roboto Slav', serif;*/
+					font-weight: 300;
+				}
+				#name {
+					font-size: 20px;
+					/*font-family: 'Roboto Slav', serif;*/
+					border-bottom: 1px solid #666;
+					background-color: #666;
+					color: white;
+					text-align: center;
+					height: 20px;
+				}
+				#note-section {
+					margin: 5px;
+					width: 400px;
+				}
+				.header {
+					width: 100%;
+					margin-top: -10px;
+				}
+				.top {
+					/*margin-top: -5px;*/
+					height: 20px;
+				}
+				#t1 {background-color: blue; width: 80px;}
+				#t2 {background-color: purple; width: 160px;}
+				#t3 {background-color: orange; width: 240px;}
+				#t4 {background-color: yellow; width: 320px;}
+				#t5 {background-color: green; width: 400px;}
+
+				#note-name-div {
+					display: none;
+				}
+
+			</style>
+
+			<!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> -->
+			<script type="text/javascript" src="jquery.min.js"></script>
+			<script type="text/javascript" src="popup.js"></script>
+	</head>
+
+	<body>
+
+		<!-- <div class="header">
+			<div class="top" id="t5"></span>
+			<div class="top" id="t4"></span>
+			<div class="top" id="t3"></span>
+			<div class="top" id="t2"></span>
+			<div class="top" id="t1"></span>
+		</div> -->
+		<!-- <div id="name"></div> -->
+		<div id="note-section"></div>
+
+		<div id="color-switcher"></div>
+
+		<button type="button" class="btn btn-info">New Note</button>
+		<!-- <button type="button" class="btn btn-warning">Edit</button> -->
+
+		<div id="note-name-div">
+			<input type="text" placeholder="note name" id="note-name">
+			<button type="button" class="btn btn-success">Create</button>
+		</div>
+
+	</body>
+
+</html>
+

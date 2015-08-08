@@ -12,71 +12,96 @@
 				body {
 					width: 400px;
 					height: 500px;
-					/*border: 1px solid #666;*/
 				}
 				p {
 					font-size: 15px;
-					/*font-family: 'Roboto Slav', serif;*/
 					font-weight: 300;
 				}
-				#name {
-					font-size: 20px;
-					/*font-family: 'Roboto Slav', serif;*/
-					border-bottom: 1px solid #666;
-					background-color: #666;
-					color: white;
-					text-align: center;
-					height: 20px;
-				}
 				#note-section {
-					margin: 5px;
-					width: 400px;
+					padding: 20px;
 				}
-				.header {
-					width: 100%;
-					margin-top: -10px;
-				}
-				.top {
-					/*margin-top: -5px;*/
-					height: 20px;
-				}
-				#t1 {background-color: blue; width: 80px;}
-				#t2 {background-color: purple; width: 160px;}
-				#t3 {background-color: orange; width: 240px;}
-				#t4 {background-color: yellow; width: 320px;}
-				#t5 {background-color: green; width: 400px;}
 
-				#note-name-div {
-					display: none;
+				/* Highlighter options */
+				.highlighter {
+					width: 96px;
+					margin: 1px;
+					float: left;
+					opacity: .65;
 				}
+				.highlighter:hover {
+					opacity: 1;
+					/*cursor: ;*/
+				}
+
+				.h-title {
+					font-size: 15px;
+					padding: 3px;
+					border-radius: 0px 3px 0 0;
+					text-align: center;
+				}
+				.h-note {
+					font-size: 10px;
+					padding: 3px;
+					border-radius: 0 0 3px 3px;
+					text-align: center;
+				}
+				
+				#mondrian-title { background: #0404A0; color: #FBFCF4; }
+				#mondrian-note { background: #F70004; color: #1A1414; }
+
+				#lascaux-title { background: #800933; color: #F0E4D6; }
+				#lascaux-note { background: #2C231E; color: #F0E4D6; }
+
+				#bosch-title { background: #DD5511; color: #FFEEBB; }
+				#bosch-note { background: #FFCC33; }
+
+				#warhol-title { background: #35A8DE; color: #29032B; }
+				#warhol-note { background: #D690C3; color: #29032B; }
+
 
 			</style>
 
-			<!-- <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'> -->
 			<script type="text/javascript" src="jquery.min.js"></script>
 			<script type="text/javascript" src="popup.js"></script>
 	</head>
 
 	<body>
 
-		<div class="header">
-			<div class="top" id="t5"></span>
-			<div class="top" id="t4"></span>
-			<div class="top" id="t3"></span>
-			<div class="top" id="t2"></span>
-			<div class="top" id="t1"></span>
-		</div>
-		<!-- <div id="name"></div> -->
-		<div id="note-section"></div>
+		<!-- The title of the note --> 
+		<div id="title"></div>
 
-		<div id="color-switcher"></div>
+		<hr>
 
-		<button type="button" class="btn btn-info">New Note</button>
-		<!-- <button type="button" class="btn btn-warning">Edit</button> -->
+		<!-- The notes themselves --> 
+		<div> <ul id="note-section"></ul> </div>
 
-		<div id="note-name-div">
-			<input type="text" placeholder="note name" id="note-name">
-			<button type="button" class="btn btn-success">Create</button>
+		<hr>
+
+		<!-- Toggle highlighter colors --> 
+		<div id="highlighter-section">
+			<!-- Mondrian --> 
+			<div class="highlighter">
+				<div class="h-title" id="mondrian-title"> Mondrian </div>
+				<div class="h-note" id="mondrian-note"> Lorem ipsum </div>
+			</div>
+
+			<!-- Lascaux --> 
+			<div class="highlighter">
+				<div class="h-title" id="lascaux-title"> Lascaux </div>
+				<div class="h-note" id="lascaux-note"> Lorem ipsum </div>
+			</div>
+
+			<!-- Bosch --> 
+			<div class="highlighter">
+				<div class="h-title" id="bosch-title"> Bosch </div>
+				<div class="h-note" id="bosch-note"> Lorem ipsum </div>
+			</div>
+
+			<!-- Warhol --> 
+			<div class="highlighter">
+				<div class="h-title" id="warhol-title"> Warhol </div>
+				<div class="h-note" id="warhol-note"> Lorem ipsum </div>
+			</div>
 		</div>
 
 	</body>

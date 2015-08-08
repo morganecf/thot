@@ -1,10 +1,14 @@
 /* Stores notes */
 var notes = {};
 
-/* Function to populate the pop up with notes */
+/* Function to populate the pop up with notes and title */
 function set_notes (notes) {
+	// Set the title 
+	$("#title").append($("<h2>" + notes.title + "</h2>"));
+
+	// Add the notes 
 	for (var i = 0; i < notes.notes.length; i++) {
-		$("#note-section").append($("<p>" + notes.notes[i] + "</p>"));
+		$("#note-section").append($("<li>" + notes.notes[i] + "</li>"));
 	}
 }
 
@@ -13,21 +17,9 @@ function set_notes (notes) {
 	send request for notes if the note thing is clicked on 
 */
 window.addEventListener('DOMContentLoaded', function () {
-	// Add new note button click functionality 
-	$(".btn-info").click(function () {
-		console.log("clicked on new note");
-		$("#note-name-div").show();
-	});
-	$(".btn-success").click(function () {
-		// Get what's in the note name field
-		var note_name = $("#note-name").val();
-		notes.note_name = [];
-
-		$("#note-section").append($("<h4>" + note_name + "</h4>"));
-
-		$("#note-name-div").hide();
-
-		// TO DO : Error handling (ex: no note name), Save to file system 
+	// Add listener to determine if a new highlight color has been selected
+	$(".highlighter").click(function () {
+		console.log(this);
 	});
 
 	// Query for notes 
