@@ -10,17 +10,19 @@ var filler = function (background, color) {
 }
 var highlighters = {
 	mondrian: {title: filler('0404A0', 'FBFCF4'), note: filler('F70004', '1A1414')},
-	lascaux: {title: filler('800933', 'F0E4D6'), note: filler('2C231E', 'F0E4D6')},
+	lascaux: {title: filler('800933', 'F0E4D6'), note: filler('2C231E', 'fff')},
 	bosch: {title: filler('DD5511', 'FFEEBB'), note: filler('FFCC33', '333')},
 	warhol: {title: filler('35A8DE', '29032B'), note: filler('D690C3', '29032B')}
 };
-var title_highlighter = highlighters.warhol.title;
-var note_highlighter = highlighters.warhol.note;
+var title_highlighter = highlighters.lascaux.title;
+var note_highlighter = highlighters.lascaux.note;
 
 /* (Literally) highlights a note */
 var highlight = function (range, highlighter) {
   var new_node = document.createElement("div");
-  new_node.setAttribute("style", "background-color:" + highlighter.background + "; color: " + highlighter.color + "; display:inline");
+  new_node.setAttribute("style", "background-color:" + highlighter.background + ";");
+  new_node.setAttribute("style", "color: " + highlighter.color + ";");
+  new_node.setAttribute("style", "display:inline; padding: 5px;");
   range.surroundContents(new_node);
 };
 
