@@ -12,6 +12,11 @@
 				body {
 					width: 400px;
 					height: 500px;
+					background: #333;
+					color: #fff;
+				}
+				#title {
+					text-align: center;
 				}
 				p {
 					font-size: 15px;
@@ -19,6 +24,15 @@
 				}
 				#note-section {
 					padding: 20px;
+				}
+
+				/* Download button */
+				.btn-default {
+					width: 100%;
+					height: 8%;
+					font-size: 13px;
+					margin-top: 90%;
+					position: relative;
 				}
 
 				/* Highlighter options */
@@ -73,12 +87,11 @@
 		<!-- The title of the note --> 
 		<div id="title"></div>
 
-		<hr>
-
 		<!-- The notes themselves --> 
 		<div> <ul id="note-section"></ul> </div>
 
-		<hr>
+		<!-- The download button --> 
+		<button type="button" class="btn btn-default">Download</button>
 
 		<!-- Toggle highlighter colors --> 
 		<div id="highlighter-section">
