@@ -10,19 +10,32 @@ var filler = function (background, color) {
 }
 var highlighters = {
 	mondrian: {title: filler('0404A0', 'FBFCF4'), note: filler('F70004', '1A1414')},
-	lascaux: {title: filler('800933', 'F0E4D6'), note: filler('2C231E', 'fff')},
+	lascaux: {title: filler('800933', 'F0E4D6'), note: filler('2C231E', 'F0E4D6')},
 	bosch: {title: filler('DD5511', 'FFEEBB'), note: filler('FFCC33', '333')},
 	warhol: {title: filler('35A8DE', '29032B'), note: filler('D690C3', '29032B')}
 };
-var title_highlighter = highlighters.lascaux.title;
-var note_highlighter = highlighters.lascaux.note;
+
+/* 
+Use default colors for now -- phased out the choice of colors 
+  note background: black #333 
+  note color: white #fff
+  title background: #1E90FF dark blue 
+  title color: white #fff
+*/
+
+var defaultHL = {title: filler('1E90FF', 'fff'), note: filler('333', 'fff')};
+
+var title_highlighter = defaultHL.title;
+var note_highlighter = defaultHL.note;
 
 /* (Literally) highlights a note */
 var highlight = function (range, highlighter) {
   var new_node = document.createElement("div");
-  new_node.setAttribute("style", "background-color:" + highlighter.background + ";");
-  new_node.setAttribute("style", "color: " + highlighter.color + ";");
-  new_node.setAttribute("style", "display:inline; padding: 5px;");
+  // The highlight style will have the given background color (highlight) and text color
+  var style_str = "background-color:" + highlighter.background + "; color: " + highlighter.color + ";";
+  // Will also be inline displayed to avoid creating a new line and thicken a bit
+  style_str += "display:inline; padding-top: 2px; padding-bottom: 2px;";
+  new_node.setAttribute("style", style_str);
   range.surroundContents(new_node);
 };
 
