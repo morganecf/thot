@@ -6,7 +6,7 @@
 
   // What happens when you click on the note button 
   "browser_action": {
-    "default_icon": "notes.png",
+    "default_icon": "note-icon.png",
     "default_popup": "notes.html"
   },
 
