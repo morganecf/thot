@@ -1,5 +1,5 @@
-/* Stores notes */
-var notes = {};
+/* Stores current notes */
+var _NOTES = {};
 
 /* Function to populate the pop up with notes and title */
 function set_notes (notes) {
@@ -10,16 +10,69 @@ function set_notes (notes) {
 	for (var i = 0; i < notes.notes.length; i++) {
 		$("#note-section").append($("<li>" + notes.notes[i] + "</li>"));
 	}
+
+	// Save 
+	_NOTES.title = notes.title;
+	if ('notes' in _NOTES) {
+		for (var i = 0; i < notes.notes.length; i++) {
+			_NOTES.notes.push(notes.notes[i]);
+		}
+	}
+	else {
+		_NOTES.notes = notes.notes;
+	}
+	
 }
+
+/* Number of total notes we have */
+var num_notes;
 
 /* 
 	Once the DOM has loaded, query for the active tab and 
 	send request for notes if the note thing is clicked on 
 */
 window.addEventListener('DOMContentLoaded', function () {
-	// Add listener to determine if a new highlight color has been selected
-	$(".highlighter").click(function () {
-		console.log(this);
+
+	// User clicks to save a note 
+	$("#save").click(function () {
+
+		console.log(_NOTES);
+
+		// Add note to local storage 
+		var noteData = [];
+		chrome.storage.local.get("data", function (d) {
+			if ('data' in d && d.data.length > 0) {
+				d.data.forEach(function (n) {
+					noteData.push(n);
+				});
+			}
+
+			// Format the note to just be a newline-separated string 
+			// with the title as the first line 
+			var notestring = _NOTES.title + "\n" + _NOTES.notes.join("\n");
+			noteData.push(notestring);
+
+			chrome.storage.local.set({"data": noteData}, function () {
+				console.log("set notes");
+			});
+		});
+
+	});
+
+	// User clicks to view notes 
+	$("#view").click(function () {
+		// Open up a new page to display all the notes 
+
+		chrome.storage.local.get("data", function (d) { 
+			for (var i = 0; i < d.data.length; i++) {
+				console.log("note #" + i);
+				var n = d.data[i].split("\n");
+				for (var j = 0; j < n.length; j++) {
+					console.log("\t" + n[j]);
+				}
+			}
+		});
+
 	});
 
 	// Query for notes 

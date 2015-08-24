@@ -1,8 +1,9 @@
 {
-  "manifest_version": 2,  // v1 unspported as of Jan 2014
   "name": "Thot",
-  "description": "Take some notes as your read articles! Save them! Never look at them again!",
   "version": "1.0",
+  "manifest_version": 2,  // v1 unspported as of Jan 2014
+  "description": "Take some notes as your read articles! Save them! Never look at them again!",
+  
 
   // What happens when you click on the note button 
   "browser_action": {
@@ -21,5 +22,9 @@
   // Has full API access 
   "background": {
     "scripts": ["background.js"]
-  }
+  },
+
+  // Has local storage permissions
+  "permissions": ["storage"]
+
 }
